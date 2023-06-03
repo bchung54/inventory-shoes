@@ -11,7 +11,7 @@ const ShoeSchema = new Schema({
 
 // Virtual for shoe's URL
 ShoeSchema.virtual('url').get(function () {
-  return `/inventory/shoe/${this._id})`;
+  return `/inventory/shoe/${this._id}`;
 });
 
 // Export model

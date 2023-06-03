@@ -14,12 +14,19 @@ const CategorySchema = new Schema({
 
 // Virtual for gender category URL
 CategorySchema.virtual('genderurl').get(function () {
-  return `/category/${this.gender}`;
+  return `/inventory/category/${this.gender}`;
 });
 
 // Virtual for style category URL
-CategorySchema.virtual('styleurl').get(function () {
-  return `/category/${this.gender}/${this.style}`;
+CategorySchema.virtual('url').get(function () {
+  return `/inventory/category/${this.id}`;
+});
+
+// Virtual for category's full label
+CategorySchema.virtual('label').get(function () {
+  return `${
+    this.gender[0].toUpperCase() + this.gender.slice(1)
+  } - ${this.style[0].toUpperCase() + this.style.slice(1)}`;
 });
 
 // Export model

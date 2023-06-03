@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+<ul>
+  <% if (brand_list.length > 0) { brand_list.forEach(brand => { %>
+  <li>
+    <a href="<%= brand.url %>"><%= brand.name %></a>
+  </li>
+  <% }); } else { %>
+  <li>There are no brands.</li>
+  <% } %>
+</ul>

@@ -1,0 +1,23 @@
+<h1><%= brand.name %></h1>
+<p><%= brand.desc %></p>
+<% if (shoes.length > 0) { %>
+<ul>
+  <% shoes.forEach(shoe => { %>
+  <li>
+    <a href="<%= shoe.url %>"
+      ><%= shoe.name %> - <%= shoe.category.gender[0].toUpperCase() +
+      shoe.category.gender.slice(1) %></a
+    >
+  </li>
+  <% }) %>
+</ul>
+<% } else { %>
+<p>No shoes from <%= brand.name %> currently in stock</p>
+<% } %>
+<hr />
+<p>
+  <a href="<%= brand.url + '/delete' %>">Delete brand</a>
+</p>
+<p>
+  <a href="<%= brand.url + '/update' %>">Update brand</a>
+</p>

@@ -1,0 +1,13 @@
+<h1><%= title %></h1>
+<ul>
+  <% if (shoe_list.length > 0) { shoe_list.forEach(shoe => { %>
+  <li>
+    <a href="<%= shoe.url %>"
+      ><%= shoe.name %> - <%= shoe.category.gender[0].toUpperCase() +
+      shoe.category.gender.slice(1) %> - <%= shoe.brand.name %></a
+    >
+  </li>
+  <% }); } else { %>
+  <li>There are no shoes.</li>
+  <% } %>
+</ul>

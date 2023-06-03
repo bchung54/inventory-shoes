@@ -1,0 +1,56 @@
+<h1><%= shoe.name %></h1>
+<p>
+  <strong>Brand:</strong>
+  <a href="<%= shoe.brand.url %>"><%= shoe.brand.name %></a>
+</p>
+<p>
+  <strong>Category:</strong>
+  <a href="<%= shoe.category.url %>"><%= shoe.category.label %></a>
+</p>
+<p>
+  <strong>Colors:</strong>
+  <span><%= colors.length > 0 ? colors : 'None' %></span>
+</p>
+<p>
+  <strong>Sizes:</strong>
+  <span><%= sizes.length > 0 ? sizes : 'None' %></span>
+</p>
+<p>
+  <strong>Price:</strong>
+  <span
+    ><%= prices.length > 0 ? `${Math.min(...prices)} - ${Math.max(...prices)}`:
+    'None' %></span
+  >
+</p>
+<% if (shoe.desc) { %>
+<p>
+  <strong>Description:</strong>
+  <span><%= shoe.desc %></span>
+</p>
+<% } %> <% if (skus.length > 0) { %>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>SKU List</h4>
+  <% skus.forEach(sku => { %>
+  <dl>
+    <dt>SKU#: <a href="<%= sku.url %>"><%= sku._id %></a></dt>
+    <dd>
+      <ul>
+        <li><strong>Color: </strong><%= sku.color %></li>
+        <li><strong>Size: </strong><%= sku.size %></li>
+        <li><strong>Price: </strong><%= sku.price %></li>
+        <li><strong>Qty in stock: </strong><%= sku.qty %></li>
+      </ul>
+    </dd>
+  </dl>
+  <% }); } else { %>
+  <h4>None in stock.</h4>
+  <p><a href="/inventory/sku/create">Add SKU</a></p>
+  <% } %>
+  <hr />
+  <p>
+    <a href="<%= shoe.url + '/delete' %>">Delete shoe</a>
+  </p>
+  <p>
+    <a href="<%= shoe.url + '/update' %>">Update shoe</a>
+  </p>
+</div>

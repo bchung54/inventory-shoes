@@ -1,0 +1,37 @@
+<h1><%= title %> : SKU# - <%= sku._id %></h1>
+<p>
+  <strong>Name:</strong>
+  <a href="<%= sku.shoe.url %>"><%= sku.shoe.name %></a>
+</p>
+<ul>
+  <li>
+    <strong>Color:</strong>
+    <span><%= sku.color %></span>
+  </li>
+  <li>
+    <strong>Size:</strong>
+    <span><%= sku.size %></span>
+  </li>
+  <li>
+    <strong>Price:</strong>
+    <span><%= sku.price %></span>
+  </li>
+</ul>
+<p>
+  <strong>Qty:</strong>
+  <span><%= sku.qty %></span>
+</p>
+<p>Do you really want to delete this SKU?</p>
+<form action="" method="post">
+  <div class="form-group">
+    <input
+      type="hidden"
+      id="skuid"
+      class="form-control"
+      name="skuid"
+      value="<%= sku._id %>"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Delete</button>
+</form>

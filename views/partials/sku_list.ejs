@@ -1,0 +1,20 @@
+<h1><%= title %></h1>
+<ul>
+  <% if (sku_list.length > 0) { sku_list.forEach(sku => { %>
+  <li>
+    <a href="<%= sku.url %>"
+      ><%= sku.shoe.name %> (color:<%= sku.color %>, size: <%= sku.size %>)</a
+    >
+    <div>
+      <span>Price: <%= sku.price %></span>
+      <% if (sku.qty < 2) { %>
+      <span class="text-danger"><strong>Qty: <%= sku.qty %></strong></span>
+      <% } else { %>
+      <span><strong>Qty: <%= sku.qty %></strong></span>
+      <% } %>
+    </div>
+  </li>
+  <% }); } else { %>
+  <li>There are no skus.</li>
+  <% } %>
+</ul>

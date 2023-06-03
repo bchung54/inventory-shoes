@@ -1,0 +1,36 @@
+<h1><%= title %> : <%= category.label %></h1>
+<% if (category_shoes.length > 0) { %>
+<p>
+  <strong
+    >Delete the following shoes before attempting to delete this
+    category.</strong
+  >
+</p>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Shoes</h4>
+  <dl>
+    <% category_shoes.forEach(shoe => { %>
+    <dt>
+      <a href="<%= shoe.url %>"><%= shoe.name %></a>
+    </dt>
+    <dd><%= shoe.desc %></dd>
+    <% }) %>
+  </dl>
+</div>
+<% } else { %>
+<!-- In a full implementation, the control would be made visible only to authorized users.-->
+<p>Do you really want to delete this category?</p>
+<form action="" method="post">
+  <div class="form-group">
+    <input
+      type="hidden"
+      id="categoryid"
+      class="form-control"
+      name="categoryid"
+      value="<%= category._id %>"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Delete</button>
+</form>
+<% } %>

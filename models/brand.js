@@ -9,7 +9,7 @@ const BrandSchema = new Schema({
 
 // Virtual for shoe brand's URL
 BrandSchema.virtual('url').get(function () {
-  return `/brand/${this.name})`;
+  return `/inventory/brand/${this.id}`;
 });
 
 // Export model

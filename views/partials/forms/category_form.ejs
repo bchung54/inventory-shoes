@@ -1,0 +1,42 @@
+<h1><%= title %></h1>
+<form action="" method="post">
+  <div class="form-group">
+    <label for="gender">Gender:</label>
+    <select
+      type="select"
+      id="gender"
+      class="form-control"
+      placeholder="Select gender"
+      name="gender"
+      required
+    >
+      <% gender_list.forEach(gender => { if (category && category.gender ===
+      gender) { %>
+      <option value="<%= gender %>" selected>
+        <%= gender[0].toUpperCase() + gender.slice(1) %>
+      </option>
+      <% } else { %>
+      <option value="<%= gender %>">
+        <%= gender[0].toUpperCase() + gender.slice(1) %>
+      </option>
+      <% }}); %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="style">Style:</label>
+    <input
+      type="text"
+      id="style"
+      class="form-control"
+      name="style"
+      value="<%= category ? category.style : '' %>"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<% if (errors) { %>
+<ul>
+  <% errors.forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }); } %>
+</ul>

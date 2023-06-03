@@ -1,0 +1,29 @@
+<h2>SKU#: <%= sku._id %></h2>
+<p>
+  <strong><a href="<%= sku.shoe.url %>"><%= sku.shoe.name %></a></strong>
+</p>
+<ul>
+  <li>
+    <strong>Color: </strong>
+    <span><%= sku.color %></span>
+  </li>
+  <li>
+    <strong>Size: </strong>
+    <span><%= sku.size %></span>
+  </li>
+  <li>
+    <strong>Price: </strong>
+    <span><%= sku.price %></span>
+  </li>
+  <li>
+    <strong>Qty In Stock: </strong>
+    <span><%= sku.qty %></span>
+  </li>
+</ul>
+<hr />
+<p>
+  <a href="<%= sku.url + '/delete' %>">Delete SKU</a>
+</p>
+<p>
+  <a href="<%= sku.url + '/update' %>">Update SKU</a>
+</p>

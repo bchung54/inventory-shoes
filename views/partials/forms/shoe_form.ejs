@@ -1,0 +1,74 @@
+<h1><%= title %></h1>
+<form action="" method="post">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      class="form-control"
+      placeholder="Name"
+      name="name"
+      value="<%= shoe ? shoe.name : '' %>"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="brand">Brand:</label>
+    <select
+      type="select"
+      id="brand"
+      class="form-control"
+      placeholder="Select brand"
+      name="brand"
+      required
+    >
+      <% brand_list.forEach(brand => { if (shoe && brand._id.toString() ===
+      shoe.brand._id.toString()) { %>
+      <option value="<%= brand._id %>" selected><%= brand.name %></option>
+      <% } else { %>
+      <option value="<%= brand._id %>"><%= brand.name %></option>
+      <% }}) %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <select
+      type="select"
+      id="category"
+      class="form-control"
+      placeholder="Select category"
+      name="category"
+      required
+    >
+      <% category_list.forEach(category => { if (shoe) { if (category._id ===
+      shoe.category._id) { %>
+      <option value="<%= category._id %>" selected>
+        <%= category.label %>
+      </option>
+      <% } else { %>
+      <option value="<%= category._id %>"><%= category.label %></option>
+      <% }} else { %>
+      <option value="<%= category._id %>"><%= category.label %></option>
+      <% }}) %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="desc">Description:</label>
+    <textarea
+      type="select"
+      id="desc"
+      class="form-control"
+      placeholder="Description"
+      name="desc"
+    >
+<%= shoe ? shoe.desc : '' %></textarea
+    >
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<% if (errors) { %>
+<ul>
+  <% errors.forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }); } %>
+</ul>

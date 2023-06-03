@@ -1,0 +1,13 @@
+<h1><%= title %></h1>
+<ul>
+  <% if (category_list.length > 0) { category_list.forEach(val => { %>
+  <li>
+    <a href="<%= val.url %>"
+      ><%= val.gender[0].toUpperCase() + val.gender.slice(1) %> - <%=
+      val.style[0].toUpperCase() + val.style.slice(1) %></a
+    >
+  </li>
+  <% }); } else { %>
+  <li>There are no categories.</li>
+  <% } %>
+</ul>

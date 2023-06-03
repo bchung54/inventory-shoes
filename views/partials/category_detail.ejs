@@ -1,0 +1,19 @@
+<h1><%= category.label %></h1>
+<% if (shoes.length > 0 ) { %>
+<ul>
+  <% shoes.forEach((shoe) => { %>
+  <li>
+    <a href="<%= shoe.url %>"><%= shoe.name %></a> - <%= shoe.brand.name %>
+  </li>
+  <% }) %>
+</ul>
+<% } else { %>
+<p>No shoes currently in stock for this category.</p>
+<% } %>
+<hr />
+<p>
+  <a href="<%= category.url + '/delete' %>">Delete category</a>
+</p>
+<p>
+  <a href="<%= category.url + '/update' %>">Update category</a>
+</p>
